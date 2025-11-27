@@ -13,3 +13,8 @@ class User(UserMixin, db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     #Relationships
+    jobs = db.relationship('Job', backref='employer, lazy=True')
+    applications = db.relationship('Application', backref='job_seeker',lazy=True)
+
+    def __repr__(self):
+        return f'<user{self.username}>'
