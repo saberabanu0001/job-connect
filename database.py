@@ -13,4 +13,9 @@ class Database:
         conn.row_factory = sqlite3.Raw
         return conn
     
-    
+    def init_database(self):
+        """database tables"""
+        conn = self.get_connection()
+        cursor = conn.coursor()
+        
+        
